@@ -1,11 +1,16 @@
 segmentation_threshold: 0.75
-blur: 3
+blur: 20
 erode: 10
-dilate: 10
-virtual_video_device: "/dev/video0"
-real_video_device: "/dev/video1"
-average_masks: 3
+dilate: 20
+output_stride: 16
+model: mobilenet
+real_video_device: "/dev/video0"
+virtual_video_device: "/dev/video2"
+average_masks: 2
 mjpeg: False
+width: 640
+height: 360
 layers:
-  - "empty": [["image", "background.jpg"]]
+  - input: ["grayscale", ["gaussian_blur", 70]]
+  - empty: [["image", {"image_path": "images/q-free/background3.jpg", "interpolation_method": "LINEAR"}]]
   - "foreground": []
