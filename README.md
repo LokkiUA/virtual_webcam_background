@@ -20,7 +20,7 @@ Download the bodypix model:
 
     ./get-model.sh
 
-Then install v4l2loopback and load the kernel module:
+Then install v4l2loopback `sudo apt install v4l2loopback-dkms` and load the kernel module:
 
     modprobe v4l2loopback exclusive_caps=1 video_nr=2 # creates /dev/video2
 
